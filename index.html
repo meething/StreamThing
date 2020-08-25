@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+<title>StreamThing</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://cdn.jsdelivr.net/npm/gun/gun.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/QVDev/GunStreamer@0.0.9/js/GunRecorder.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/QVDev/GunStreamer@0.0.9/js/GunStreamer.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/QVDev/GunStreamer@0.0.9/js/GunViewer.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/QVDev/GunStreamer@0.0.9/js/mediabuffer.js"></script>
+<style>
+    body,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5 {
+        font-family: "Poppins", sans-serif
+    }
+
+    body {
+        font-size: 16px;
+    }
+
+    img {
+        margin-bottom: -8px;
+    }
+
+    .mySlides {
+        display: none;
+    }
+</style>
+
+<body class="w3-content w3-black" style="max-width:1500px;">
+
+    <!-- The App Section -->
+    <div class="w3-padding-64 w3-white">
+        <div class="w3-row-padding">
+            <div class="w3-col l8 m6">
+                <h1 class="w3-jumbo"><b>StreamThing</b></h1>
+                <h1 class="w3-xxxlarge w3-text-green"><b>P2P live streaming</b></h1>
+                <h4 id="peers"></h4>
+                <button class="w3-button w3-light-grey w3-padding-large w3-section w3-hide-small"
+                    onclick="document.getElementById('download').style.display='block'">
+                    <i class="fa fa-envelope"></i> Contact us
+                </button>
+            </div>
+            <div class="w3-col l4 m6">
+                <video id="remote" src="mov/big_buck_bunny.mp4" autoplay muted height="471"
+                    class="w3-image w3-right w3-hide-small"></video>
+                <p>Video served via StreamThing p2p technology</p>
+                <div class="w3-center w3-hide-large w3-hide-medium">
+                    <button class="w3-button w3-block w3-padding-large"
+                        onclick="document.getElementById('download').style.display='block'">
+                        <i class="fa fa-download"></i> Download Application
+                    </button>
+                    <img src="/w3images/img_app.jpg" class="w3-image w3-margin-top" width="335" height="471">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div id="download" class="w3-modal w3-animate-opacity">
+        <div class="w3-modal-content" style="padding:32px">
+            <div class="w3-container w3-white">
+                <i onclick="document.getElementById('download').style.display='none'"
+                    class="fa fa-remove w3-xlarge w3-button w3-transparent w3-right w3-xlarge"></i>
+                <h2 class="w3-wide">Contact</h2>
+                <p>Get in contact with us about the posibilities.</p>
+                <p><input class="w3-input w3-border" type="text" placeholder="Enter e-mail"></p>
+                <button type="button" class="w3-button w3-block w3-padding-large w3-red w3-margin-bottom"
+                    onclick="document.getElementById('download').style.display='none'">SUBMIT</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Clarity Section -->
+    <div class="w3-padding-64 w3-light-grey">
+        <div class="w3-row-padding">
+            <div class="w3-col l4 m6">
+                <i class="fa fa-bullhorn fa-4x"></i>
+            </div>
+            <div class="w3-col l8 m6">
+                <h1 class="w3-jumbo"><b>Decentralized</b></h1>
+                <h1 class="w3-xxxlarge w3-text-red"><b>Privacy focused</b></h1>
+                <p><span class="w3-xlarge">A revolution in live streaming on the web.</span>
+                    No account needed, full control over what you stream and whenever you want.
+                    Due to the Decentralized nature of StreamThing streaming continues when a node goes offline.
+                    Advanced configurations are possible such as dash.js player with mpd file. All in a small contained
+                    plain js library.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Features Section -->
+    <div class="w3-container w3-padding-64 w3-dark-grey w3-center">
+        <h1 class="w3-jumbo"><b>Features</b></h1>
+
+        <div class="w3-row" style="margin-top:64px">
+            <div class="w3-col s3">
+                <i class="fa fa-bolt w3-text-orange w3-jumbo"></i>
+                <p>Fast</p>
+            </div>
+            <div class="w3-col s3">
+                <i class="fa fa-heart w3-text-red w3-jumbo"></i>
+                <p>Loved</p>
+            </div>
+            <div class="w3-col s3">
+                <i class="fa fa-pied-piper-pp w3-text-yellow w3-jumbo"></i>
+                <p>Decentralized</p>
+            </div>
+            <div class="w3-col s3">
+                <i class="fa fa-diamond w3-text-white w3-jumbo"></i>
+                <p>Sharp</p>
+            </div>
+        </div>
+
+        <div class="w3-row" style="margin-top:64px">
+            <div class="w3-col s3">
+                <i class="fa fa-user w3-text-sand w3-jumbo"></i>
+                <p>Safe</p>
+            </div>
+            <div class="w3-col s3">
+                <i class="fa fa-lock w3-text-orange w3-jumbo"></i>
+                <p>Encrypted</p>
+            </div>
+            <div class="w3-col s3">
+                <i class="fa fa-wifi w3-text-grey w3-jumbo"></i>
+                <p>Connected</p>
+            </div>
+            <div class="w3-col s3">
+                <i class="fa fa-image w3-text-pink w3-jumbo"></i>
+                <p>HD</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pricing Section -->
+    <div class="w3-padding-64 w3-center w3-white">
+        <h1 class="w3-jumbo"><b>Pricing</b></h1>
+        <p class="w3-large">Choose a pricing plan that fits your needs.</p>
+        <div class="w3-row-padding" style="margin-top:64px">
+            <div class="w3-half w3-section">
+                <ul class="w3-ul w3-card w3-hover-shadow">
+                    <li class="w3-dark-grey w3-xlarge w3-padding-32">Basic DIY</li>
+                    <li class="w3-padding-16"><b>Initial</b> video consultancy</li>
+                    <li class="w3-padding-16"><b>all</b> Features</li>
+                    <li class="w3-padding-16"><b>No</b> Ads</li>
+                    <li class="w3-padding-16"><b>Chat</b> Support</li>
+                    <li class="w3-padding-16">
+                        <h2 class="w3-opacity">$ 25</h2>
+                    </li>
+                    <li class="w3-light-grey w3-padding-24">
+                        <button class="w3-button w3-black w3-padding-large"
+                            onclick="document.getElementById('download').style.display='block'"><i
+                                class="fa fa-envelope"></i> Contact us</button>
+                    </li>
+                </ul>
+            </div>
+            <div class="w3-half w3-section">
+                <ul class="w3-ul w3-card w3-hover-shadow">
+                    <li class="w3-red w3-xlarge w3-padding-32">Premium Service</li>
+                    <li class="w3-padding-16"><b>Custom</b> Integration</li>
+                    <li class="w3-padding-16"><b>All</b> Features</li>
+                    <li class="w3-padding-16"><b>No</b> Ads</li>
+                    <li class="w3-padding-16"><b>Endless</b> Support</li>
+                    <li class="w3-padding-16">
+                        <h2 class="w3-opacity">$ Request quote</h2>
+                    </li>
+                    <li class="w3-light-grey w3-padding-24">
+                        <button class="w3-button w3-black w3-padding-large"
+                            onclick="document.getElementById('download').style.display='block'"> <i
+                                class="fa fa-envelope"></i> Contact us</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <br>
+    </div>
+
+    <!-- Footer -->
+    <footer class="w3-container w3-padding-32 w3-light-grey w3-center w3-xlarge">
+        <div class="w3-section">
+            <a href="https://github.com/meething" target="_blank">
+                <i class="fa fa-github w3-hover-opacity"></i>
+            </a>
+            
+        </div>
+        <p class="w3-medium">Powered by <a href="https://offline7.com" target="_blank"
+                class="w3-hover-text-green">Offline7</a></p>
+    </footer>
+
+    <script>
+        // Slideshow
+        var slideIndex = 1;
+        showDivs(slideIndex);
+
+        function plusDivs(n) {
+            showDivs(slideIndex += n);
+        }
+
+        function showDivs(n) {
+            var i;
+            var x = document.getElementsByClassName("mySlides");
+            if (n > x.length) { slideIndex = 1 }
+            if (n < 1) { slideIndex = x.length }
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+            }
+            x[slideIndex - 1].style.display = "block";
+        }
+    </script>
+    <script src="js/index.js"></script>
+</body>
+
+</html>
