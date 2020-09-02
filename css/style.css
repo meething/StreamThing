@@ -237,6 +237,7 @@ dd {
     margin-left: 24px;
     margin-bottom: 24px;
 }
+video,
 img {
     height: auto;
     max-width: 100%;
@@ -250,6 +251,7 @@ figcaption {
     line-height: 24px;
     padding: 8px 0;
 }
+video,
 img,
 svg {
     display: block;
