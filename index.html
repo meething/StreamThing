@@ -1,220 +1,262 @@
 <!DOCTYPE html>
-<html>
-<title>StreamThing</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<script src="https://cdn.jsdelivr.net/npm/gun/gun.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/QVDev/GunStreamer@0.0.9/js/GunRecorder.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/QVDev/GunStreamer@0.0.9/js/GunStreamer.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/QVDev/GunStreamer@0.0.9/js/GunViewer.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/QVDev/GunStreamer@0.0.9/js/mediabuffer.js"></script>
-<style>
-    body,
-    h1,
-    h2,
-    h3,
-    h4,
-    h5 {
-        font-family: "Poppins", sans-serif
-    }
+<html lang="en">
 
-    body {
-        font-size: 16px;
-    }
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>StreamThing</title>
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,400i|PT+Serif:700" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gun/gun.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/QVDev/GunStreamer@0.0.9/js/GunRecorder.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/QVDev/GunStreamer@0.0.9/js/GunStreamer.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/QVDev/GunStreamer@0.0.9/js/GunViewer.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/QVDev/GunStreamer@0.0.9/js/mediabuffer.js"></script>
+</head>
 
-    img {
-        margin-bottom: -8px;
-    }
-
-    .mySlides {
-        display: none;
-    }
-</style>
-
-<body class="w3-content w3-black" style="max-width:1500px;">
-
-    <!-- The App Section -->
-    <div class="w3-padding-64">
-        <div class="w3-row-padding">
-            <div class="w3-col l8 m6">
-                <h1 class="w3-jumbo"><b>StreamThing</b></h1>
-                <h1 class="w3-xxxlarge w3-text-green"><b>P2P live streaming</b></h1>
-                <h4 id="peers"></h4>
-                <button class="w3-button w3-light-grey w3-padding-large w3-section w3-hide-small"
-                    onclick="document.getElementById('download').style.display='block'">
-                    <i class="fa fa-envelope"></i> Contact us
-                </button>
-            </div>
-            <div class="w3-col l4 m6">
-                <video id="remote" src="mov/big_buck_bunny.mp4" autoplay muted height="471"
-                    class="w3-image w3-right w3-hide-small"></video>
-                <p>Video served via StreamThing p2p technology</p>
-                <div class="w3-center w3-hide-large w3-hide-medium">
-                    <button class="w3-button w3-block w3-padding-large"
-                        onclick="document.getElementById('download').style.display='block'">
-                        <i class="fa fa-download"></i> Download Application
-                    </button>
-                    <img src="/w3images/img_app.jpg" class="w3-image w3-margin-top" width="335" height="471">
+<body class="is-boxed has-animations">
+    <div class="body-wrap boxed-container">
+        <header class="site-header">
+            <div class="container">
+                <div class="site-header-inner">
+                    <ul class="header-links list-reset m-0">
+                    </ul>
                 </div>
             </div>
-        </div>
+        </header>
+
+        <main>
+            <section class="hero text-light text-center">
+                <div class="container-sm">
+                    <div class="hero-inner">
+                        <h1 class="hero-title h2-mobile mt-0 is-revealing">Low cost livestream solutions</h1>
+                        <p class="hero-paragraph is-revealing">We make it easy to livestream anything you want with the
+                            privacy you need.</p>
+                        <p class="hero-cta is-revealing"><a class="button button-secondary button-shadow" href="#">Get
+                                started now</a></p>
+                        <div class="hero-media">
+                            <video id="remote" src="mov/big_buck_bunny.mp4" autoplay muted width="800px"></video>                            
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="features-extended section">
+                <div class="container">
+                    <div class="features-extended-inner section-inner has-top-divider">
+                        <div class="features-extended-header text-center">
+                            <div class="container-sm">
+                                <h2 class="section-title mt-0">StreamThing</h2>
+                                <p class="section-paragraph" id="peers"></p>
+                            </div>
+                        </div>
+                        <div class="feature-extended">
+                            <div class="feature-extended-image is-revealing">
+                                <svg width="480" height="360" viewBox="0 0 680 560" xmlns="http://www.w3.org/2000/svg">
+                                    <defs>
+                                        <filter x="-500%" y="-500%" width="1000%" height="1000%"
+                                            filterUnits="objectBoundingBox" id="dropshadow-1">
+                                            <feOffset dy="16" in="SourceAlpha" result="shadowOffsetOuter" />
+                                            <feGaussianBlur stdDeviation="24" in="shadowOffsetOuter"
+                                                result="shadowBlurOuter" />
+                                            <feColorMatrix values="0 0 0 0 0.12 0 0 0 0 0.17 0 0 0 0 0.21 0 0 0 0.2 0"
+                                                in="shadowBlurOuter" />
+                                        </filter>
+                                    </defs>
+                                    <path d="m331.467 218.245s14.805-90.158 110.262-84.616c6.379.37 10.788 6.544 9.06 12.695l-30.245 107.635z" fill="#f00"/><path d="m49.828 304.859c-10.933 0-19.828-8.895-19.828-19.828v-25.997c0-8.284-6.716-15-15-15s-15 6.716-15 15v25.997c0 27.475 22.353 49.828 49.828 49.828h38.46v-30z" fill="#ff4b00"/><path d="m510.125 277.823v79.96c0 5.53-4.48 10-10 10h-30.77c-4 0-7.62 2.39-9.19 6.08-11.3 26.67-31.35 45.71-56.69 59.12-2.83 1.5-4.78 4.25-5.23 7.42l-8.733 61.076c-.704 4.926-4.923 8.585-9.899 8.585h-59.688c-5.523 0-10-4.477-10-10v-30c0-5.88-5.05-10.49-10.91-9.96-13.34 1.21-28.85 2.09-43.89 2.32-9.36.13-18.53.01-26.9-.43-5.73-.31-10.53 4.25-10.53 9.98v28.09c0 5.523-4.477 10-10 10h-59.669c-4.98 0-9.201-3.665-9.901-8.595l-9.691-68.305c-.37-2.56-1.71-4.88-3.75-6.47-33.64-26.21-51.4-64.54-51.4-107.26 0-77.403 57.165-144.887 181.84-142.94 83.74 1.32 169.26 17.82 201.66 81.26 1.52 2.97 4.37 5.03 7.68 5.45l36.92 4.7c5.001.638 8.741 4.888 8.741 9.919z" fill="#ffbeaa"/><path d="m510.125 277.823v79.96c0 5.53-4.48 10-10 10h-30.77c-4 0-7.62 2.39-9.19 6.08-11.3 26.67-31.35 45.71-56.69 59.12-2.83 1.5-4.78 4.25-5.23 7.42l-8.733 61.076c-.704 4.926-4.923 8.585-9.899 8.585h-59.688c-5.523 0-10-4.477-10-10v-30c0-5.88-5.05-10.49-10.91-9.96-13.34 1.21-28.85 2.09-43.89 2.32v-285.93c83.74 1.32 169.26 17.82 201.66 81.26 1.52 2.97 4.37 5.03 7.68 5.45l36.92 4.7c5 .638 8.74 4.888 8.74 9.919z" fill="#ffa68d"/><path d="m383.125 273.549c-8.284 0-15 6.716-15 15v9.467c0 8.284 6.716 15 15 15s15-6.716 15-15v-9.467c0-8.284-6.716-15-15-15z" fill="#292929"/><path d="m307.595 248.472c0 8.29-6.72 15-15 15h-74.94c-8.28 0-15-6.71-15-15 0-8.28 6.72-15 15-15h74.94c8.28 0 15 6.72 15 15z" fill="#ff4b00"/><path d="m307.595 248.472c0 8.29-6.72 15-15 15h-37.47v-30h37.47c8.28 0 15 6.72 15 15z" fill="#f00"/><path d="m347.646 53.215c0 29.359-23.793 53.152-53.152 53.152-29.348 0-53.141-23.793-53.141-53.152s23.793-53.152 53.141-53.152c29.358 0 53.152 23.793 53.152 53.152z" fill="#ff9100"/><circle cx="215.757" cy="80.41" fill="#ffd17b" r="53.152"/><path d="m268.909 80.41c0 29.359-23.793 53.152-53.152 53.152v-106.304c29.358 0 53.152 23.794 53.152 53.152z" fill="#fdbf00"/><path d="m347.646 53.215c0 29.359-23.793 53.152-53.152 53.152v-106.304c29.358 0 53.152 23.793 53.152 53.152z" fill="#ff4b00"/>                                  
+                                </svg>
+                            </div>
+                            <div class="feature-extended-body">
+                                <h3 class="mt-0">Low costs</h3>
+                                <p>Decentralization significantly reduces costs</p>
+                            </div>
+                        </div>
+                        <div class="feature-extended">
+                            <div class="feature-extended-image is-revealing">
+                                <svg width="480" height="360" viewBox="0 0 480 360" xmlns="http://www.w3.org/2000/svg">
+                                    <defs>
+                                        <filter x="-500%" y="-500%" width="1000%" height="1000%"
+                                            filterUnits="objectBoundingBox" id="dropshadow-2">
+                                            <feOffset dy="16" in="SourceAlpha" result="shadowOffsetOuter" />
+                                            <feGaussianBlur stdDeviation="24" in="shadowOffsetOuter"
+                                                result="shadowBlurOuter" />
+                                            <feColorMatrix values="0 0 0 0 0.12 0 0 0 0 0.17 0 0 0 0 0.21 0 0 0 0.2 0"
+                                                in="shadowBlurOuter" />
+                                        </filter>
+                                    </defs>
+                                    <g><g><path d="m33.134 55.667v4.703c0 75.177 35.084 146.048 94.866 191.63 59.782-45.582 94.866-116.452 94.866-191.63v-4.703l-94.866-51.667z" fill="#fcc24c"/></g><g><path d="m214.639 51.186v1.563c0 80.874-31.975 140.883-86.639 199.251 59.782-45.582 94.866-116.453 94.866-191.63v-4.703z" fill="#dea42e"/></g><g><path d="m41.361 51.186v1.563c0 80.874 31.974 140.883 86.639 199.251-59.782-45.582-94.866-116.453-94.866-191.63v-4.703z" fill="#fce06a"/></g><g><path d="m128 254c-.428 0-.854-.137-1.213-.41-29.575-22.551-53.931-52.088-70.431-85.42-16.501-33.331-25.223-70.608-25.223-107.8v-4.704c0-.732.4-1.406 1.043-1.756l94.866-51.666c.598-.325 1.316-.325 1.914 0l94.866 51.666c.643.35 1.043 1.024 1.043 1.756v4.704c0 37.192-8.722 74.469-25.223 107.8-16.5 33.332-40.855 62.869-70.431 85.42-.356.273-.783.41-1.211.41zm-92.866-197.146v3.516c0 36.58 8.578 73.243 24.808 106.025 16.002 32.327 39.515 61.025 68.058 83.084 28.543-22.059 52.056-50.756 68.059-83.083 16.23-32.782 24.808-69.445 24.808-106.025v-3.516l-92.867-50.578z" fill="#690589"/></g><g><path d="m44.824 99.061c-.956 0-1.802-.688-1.969-1.662-.743-4.321-1.633-11.787-1.671-12.103-.13-1.097.653-2.092 1.75-2.222 1.089-.133 2.092.652 2.223 1.749.009.077.915 7.68 1.64 11.897.188 1.089-.543 2.123-1.632 2.31-.114.021-.229.031-.341.031z" fill="#690589"/></g><g><path d="m156.081 102.412c-1.105 0-2-.896-2-2v-13.96c0-14.381-11.7-26.081-26.081-26.081s-26.081 11.7-26.081 26.081v13.96c0 1.104-.896 2-2 2s-2-.896-2-2v-13.96c0-16.587 13.494-30.081 30.081-30.081s30.081 13.494 30.081 30.081v13.96c0 1.104-.895 2-2 2z" fill="#690589"/></g><g><path d="m158.029 177.63h-60.058c-4.738 0-8.58-3.841-8.58-8.58v-60.059c0-4.739 3.841-8.58 8.58-8.58h60.058c4.738 0 8.58 3.841 8.58 8.58v60.059c0 4.738-3.841 8.58-8.58 8.58z" fill="#f4efed"/></g><g><path d="m158.029 179.629h-60.058c-5.834 0-10.58-4.746-10.58-10.58v-60.059c0-5.834 4.746-10.58 10.58-10.58h60.059c5.834 0 10.58 4.746 10.58 10.58v60.059c-.001 5.834-4.747 10.58-10.581 10.58zm-60.058-77.217c-3.628 0-6.58 2.952-6.58 6.58v60.059c0 3.628 2.952 6.58 6.58 6.58h60.059c3.628 0 6.58-2.952 6.58-6.58v-60.059c0-3.628-2.952-6.58-6.58-6.58z" fill="#690589"/></g><g><g><path d="m123.193 159.255-23.598-22.369 8.143-8.589 15.73 14.91 25.47-22.614 7.846 8.864z" fill="#526faa"/></g></g><g><g><g><path d="m123.193 161.255c-.495 0-.991-.184-1.376-.548l-23.599-22.369c-.385-.365-.609-.868-.623-1.398-.015-.53.183-1.044.548-1.429l8.143-8.589c.759-.802 2.026-.835 2.827-.076l14.397 13.648 24.099-21.396c.397-.353.916-.533 1.448-.501.53.032 1.025.273 1.378.671l7.846 8.864c.732.827.655 2.089-.171 2.822l-33.591 29.798c-.377.335-.852.503-1.326.503zm-20.771-24.444 20.816 19.731 30.725-27.255-5.194-5.868-23.973 21.284c-.778.689-1.952.669-2.704-.044l-14.278-13.535z" fill="#690589"/></g></g></g></g>
+                                </svg>
+                            </div>
+                            <div class="feature-extended-body">
+                                <h3 class="mt-0">Privacy</h3>
+                                <p>Encrypted video streaming</p>
+                            </div>
+                        </div>
+                        <div class="feature-extended">
+                            <div class="feature-extended-image is-revealing">
+                                <svg width="480" height="360" viewBox="0 0 90 90" xmlns="http://www.w3.org/2000/svg">
+                                    <defs>
+                                        <filter x="-500%" y="-500%" width="1000%" height="1000%"
+                                            filterUnits="objectBoundingBox" id="dropshadow-3">
+                                            <feOffset dy="16" in="SourceAlpha" result="shadowOffsetOuter" />
+                                            <feGaussianBlur stdDeviation="24" in="shadowOffsetOuter"
+                                                result="shadowBlurOuter" />
+                                            <feColorMatrix values="0 0 0 0 0.12 0 0 0 0 0.17 0 0 0 0 0.21 0 0 0 0.2 0"
+                                                in="shadowBlurOuter" />
+                                        </filter>
+                                    </defs>
+                                    <path d="m19 46h-10v-2h8v-4h2z" fill="#454a6d"/><path d="m17 40h-7.414l-3-3h-3.586v-2h4.414l3 3h6.586z" fill="#454a6d"/><path d="m15 51h6v2h-6z" fill="#454a6d"/><path d="m29 58h-2v-10.414l2-2v-6.586h2v7.414l-2 2z" fill="#454a6d"/><path d="m27.293 48.707-4.293-4.293v-12.414h2v11.586l3.707 3.707z" fill="#454a6d"/><path d="m17 32h2v6h-2z" fill="#454a6d"/><path d="m47.414 42h-7.414v-2h6.586l3-3h7.414v2h-6.586z" fill="#454a6d"/><path d="m46 55h-2v-8h9v2h-7z" fill="#454a6d"/><path d="m38 57h-2v-8.414l2-2v-4.586h2v5.414l-2 2z" fill="#454a6d"/><path d="m40 40h-2v-4.414l5.293-5.293 1.414 1.414-4.707 4.707z" fill="#454a6d"/><path d="m57 32h2v5h-2z" fill="#454a6d"/><path d="m29 32h2v5h-2z" fill="#454a6d"/><circle cx="18" cy="39" fill="#e89d43" r="2"/><circle cx="30" cy="38" fill="#e89d43" r="2"/><circle cx="39" cy="41" fill="#e89d43" r="2"/><circle cx="37" cy="58" fill="#e89d43" r="2"/><circle cx="58" cy="38" fill="#e89d43" r="2"/><circle cx="54" cy="48" fill="#e89d43" r="2"/><circle cx="45" cy="56" fill="#e89d43" r="2"/><circle cx="28" cy="59" fill="#e89d43" r="2"/><circle cx="8" cy="45" fill="#e89d43" r="2"/><circle cx="14" cy="52" fill="#e89d43" r="2"/><circle cx="22" cy="52" fill="#e89d43" r="2"/><g fill="#4ac3ed"><path d="m44.487 10.923c-2.427-3.127-5.393-5.365-8.667-6.354 1.161 1.71 2.135 4.182 2.913 7.136 2.068-.185 3.994-.452 5.754-.782z"/><path d="m38.483 21.749c-.317-2.987-.764-5.639-1.291-7.928-1.722.118-3.464.179-5.192.179s-3.47-.061-5.191-.179c-.527 2.289-.974 4.942-1.291 7.928 2.105.163 4.272.251 6.482.251s4.377-.088 6.483-.251z"/><path d="m24.519 3.979c-3.977 1.059-7.616 2.942-10.727 5.456 1.074.378 2.274.729 3.601 1.042 2.025-2.807 4.446-5.03 7.126-6.498z"/><path d="m32 24c-2.286 0-4.512-.089-6.669-.251-.211 2.545-.331 5.299-.331 8.251h14c0-2.952-.12-5.706-.331-8.251-2.157.162-4.383.251-6.669.251z"/><path d="m19.513 10.923c1.76.331 3.686.597 5.754.782.778-2.954 1.752-5.426 2.913-7.137-3.273.989-6.24 3.228-8.667 6.355z"/><path d="m23.543 21.574c.298-2.803.716-5.485 1.253-7.917-2.274-.218-4.483-.538-6.54-.96-1.41 2.18-2.586 4.691-3.464 7.449 2.71.625 5.651 1.112 8.751 1.428z"/><path d="m32 12c1.626 0 3.192-.051 4.696-.142-1.4-5.057-3.199-7.858-4.696-7.858s-3.296 2.801-4.696 7.858c1.504.091 3.07.142 4.696.142z"/><path d="m5.871 19.405c-1.839 3.809-2.871 8.081-2.871 12.595h8c0-3.647.459-7.144 1.297-10.38-2.354-.631-4.504-1.377-6.426-2.215z"/><path d="m40.648 23.578c.233 2.763.352 5.609.352 8.422h10c0-3.484-.437-6.818-1.23-9.897-2.817.653-5.877 1.153-9.122 1.475z"/><path d="m51.911 10.927c-1.243.494-2.633.931-4.133 1.308 1.361 2.215 2.497 4.716 3.358 7.433 2.213-.59 4.244-1.276 6.047-2.042-1.423-2.488-3.203-4.744-5.272-6.699z"/><path d="m51.703 21.62c.838 3.236 1.297 6.733 1.297 10.38h8c0-4.514-1.032-8.786-2.871-12.595-1.922.838-4.072 1.584-6.426 2.215z"/><path d="m45.744 12.698c-2.057.422-4.266.742-6.54.96.537 2.431.955 5.114 1.253 7.917 3.101-.316 6.041-.803 8.751-1.427-.878-2.759-2.053-5.27-3.464-7.45z"/><path d="m39.481 3.979c2.68 1.468 5.101 3.691 7.126 6.497 1.327-.312 2.527-.664 3.601-1.042-3.11-2.512-6.75-4.395-10.727-5.455z"/><path d="m23.352 23.578c-3.245-.322-6.305-.822-9.122-1.475-.793 3.079-1.23 6.413-1.23 9.897h10c0-2.813.119-5.659.352-8.422z"/><path d="m16.222 12.235c-1.499-.377-2.89-.814-4.133-1.308-2.069 1.956-3.849 4.212-5.272 6.7 1.803.766 3.834 1.452 6.047 2.042.861-2.718 1.997-5.219 3.358-7.434z"/></g>
+                                </svg>
+                            </div>
+                            <div class="feature-extended-body">
+                                <h3 class="mt-0">Scalable</h3>
+                                <p>P2P automatically scales when more users watch</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="pricing section">
+                <div class="container">
+                    <div class="pricing-inner section-inner has-top-divider">
+                        <h2 class="section-title mt-0 text-center">Pricing</h2>
+                        <div class="pricing-tables-wrap">
+                            <div class="pricing-table is-revealing">
+                                <div class="pricing-table-inner">
+                                    <div class="pricing-table-main">
+                                        <div class="pricing-table-header">
+                                            <div class="pricing-table-title mt-12 mb-16 text-secondary">Basic DIY
+                                            </div>
+                                            <div class="pricing-table-price mb-24 pb-32"><span
+                                                    class="pricing-table-price-currency h3">€</span><span
+                                                    class="pricing-table-price-amount h1">25</span></div>
+                                        </div>
+                                        <ul class="pricing-table-features list-reset text-xs mb-56">
+                                            <li>
+                                                <span class="list-icon">
+                                                    <svg width="16" height="12" xmlns="http://www.w3.org/2000/svg">
+                                                        <path
+                                                            d="M14.3.3L5 9.6 1.7 6.3c-.4-.4-1-.4-1.4 0-.4.4-.4 1 0 1.4l4 4c.2.2.4.3.7.3.3 0 .5-.1.7-.3l10-10c.4-.4.4-1 0-1.4-.4-.4-1-.4-1.4 0z"
+                                                            fill="#00C6A7" fill-rule="nonzero" />
+                                                    </svg>
+                                                </span>
+                                                <span>Welcome consultancy.</span>
+                                            </li>
+                                            <li>
+                                                <span class="list-icon">
+                                                    <svg width="16" height="12" xmlns="http://www.w3.org/2000/svg">
+                                                        <path
+                                                            d="M14.3.3L5 9.6 1.7 6.3c-.4-.4-1-.4-1.4 0-.4.4-.4 1 0 1.4l4 4c.2.2.4.3.7.3.3 0 .5-.1.7-.3l10-10c.4-.4.4-1 0-1.4-.4-.4-1-.4-1.4 0z"
+                                                            fill="#00C6A7" fill-rule="nonzero" />
+                                                    </svg>
+                                                </span>
+                                                <span>All features.</span>
+                                            </li>
+                                            <li>
+                                                <span class="list-icon">
+                                                    <svg width="16" height="12" xmlns="http://www.w3.org/2000/svg">
+                                                        <path
+                                                            d="M14.3.3L5 9.6 1.7 6.3c-.4-.4-1-.4-1.4 0-.4.4-.4 1 0 1.4l4 4c.2.2.4.3.7.3.3 0 .5-.1.7-.3l10-10c.4-.4.4-1 0-1.4-.4-.4-1-.4-1.4 0z"
+                                                            fill="#00C6A7" fill-rule="nonzero" />
+                                                    </svg>
+                                                </span>
+                                                <span>Chat support.</span>
+                                            </li>
+                                            <li>
+                                                <span class="list-icon">
+                                                    <svg width="16" height="12" xmlns="http://www.w3.org/2000/svg">
+                                                        <path
+                                                            d="M14.3.3L5 9.6 1.7 6.3c-.4-.4-1-.4-1.4 0-.4.4-.4 1 0 1.4l4 4c.2.2.4.3.7.3.3 0 .5-.1.7-.3l10-10c.4-.4.4-1 0-1.4-.4-.4-1-.4-1.4 0z"
+                                                            fill="#00C6A7" fill-rule="nonzero" />
+                                                    </svg>
+                                                </span>
+                                                <span>No Ads.</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="pricing-table-cta">
+                                        <a class="button button-secondary button-block" href="#">Get started now</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="pricing-table is-revealing">
+                                <div class="pricing-table-inner">
+                                    <div class="pricing-table-main">
+                                        <div class="pricing-table-header">
+                                            <div class="pricing-table-title mt-12 mb-16 text-primary">Premium Service
+                                            </div>
+                                            <div class="pricing-table-price mb-24 pb-32"><span
+                                                    class="pricing-table-price-currency h3"></span><span
+                                                    class="pricing-table-price-amount h1" style="color: white;">.</span>
+                                            </div>
+                                        </div>
+                                        <ul class="pricing-table-features list-reset text-xs mb-56">
+                                            <li>
+                                                <span class="list-icon">
+                                                    <svg width="16" height="12" xmlns="http://www.w3.org/2000/svg">
+                                                        <path
+                                                            d="M14.3.3L5 9.6 1.7 6.3c-.4-.4-1-.4-1.4 0-.4.4-.4 1 0 1.4l4 4c.2.2.4.3.7.3.3 0 .5-.1.7-.3l10-10c.4-.4.4-1 0-1.4-.4-.4-1-.4-1.4 0z"
+                                                            fill="#00A2B8" fill-rule="nonzero" />
+                                                    </svg>
+                                                </span>
+                                                <span>Custom integration.</span>
+                                            </li>
+                                            <li>
+                                                <span class="list-icon">
+                                                    <svg width="16" height="12" xmlns="http://www.w3.org/2000/svg">
+                                                        <path
+                                                            d="M14.3.3L5 9.6 1.7 6.3c-.4-.4-1-.4-1.4 0-.4.4-.4 1 0 1.4l4 4c.2.2.4.3.7.3.3 0 .5-.1.7-.3l10-10c.4-.4.4-1 0-1.4-.4-.4-1-.4-1.4 0z"
+                                                            fill="#00A2B8" fill-rule="nonzero" />
+                                                    </svg>
+                                                </span>
+                                                <span>All features.</span>
+                                            </li>
+                                            <li>
+                                                <span class="list-icon">
+                                                    <svg width="16" height="12" xmlns="http://www.w3.org/2000/svg">
+                                                        <path
+                                                            d="M14.3.3L5 9.6 1.7 6.3c-.4-.4-1-.4-1.4 0-.4.4-.4 1 0 1.4l4 4c.2.2.4.3.7.3.3 0 .5-.1.7-.3l10-10c.4-.4.4-1 0-1.4-.4-.4-1-.4-1.4 0z"
+                                                            fill="#00A2B8" fill-rule="nonzero" />
+                                                    </svg>
+                                                </span>
+                                                <span>No Ads.</span>
+                                            </li>
+                                            <li>
+                                                <span class="list-icon">
+                                                    <svg width="16" height="12" xmlns="http://www.w3.org/2000/svg">
+                                                        <path
+                                                            d="M14.3.3L5 9.6 1.7 6.3c-.4-.4-1-.4-1.4 0-.4.4-.4 1 0 1.4l4 4c.2.2.4.3.7.3.3 0 .5-.1.7-.3l10-10c.4-.4.4-1 0-1.4-.4-.4-1-.4-1.4 0z"
+                                                            fill="#00A2B8" fill-rule="nonzero" />
+                                                    </svg>
+                                                </span>
+                                                <span>Endless support.</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="pricing-table-cta">
+                                        <a class="button button-primary button-block" href="#">Request quote</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="site-footer">
+            <div class="container">
+                <div class="site-footer-inner">
+                    <div class="footer-copyright">&copy; 2020 StreamThing, all rights reserved</div>
+                    <div>Icons made by <a href="http://www.freepik.com/" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+                </div>
+            </div>
+        </footer>
     </div>
-
-    <!-- Modal -->
-    <div id="download" class="w3-modal w3-animate-opacity">
-        <div class="w3-modal-content" style="padding:32px">
-            <div class="w3-container w3-white">
-                <i onclick="document.getElementById('download').style.display='none'"
-                    class="fa fa-remove w3-xlarge w3-button w3-transparent w3-right w3-xlarge"></i>
-                <h2 class="w3-wide">Contact</h2>
-                <p>Get in contact with us about the posibilities.</p>
-                <p><input class="w3-input w3-border" type="text" placeholder="Enter e-mail"></p>
-                <button type="button" class="w3-button w3-block w3-padding-large w3-red w3-margin-bottom"
-                    onclick="document.getElementById('download').style.display='none'">SUBMIT</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Clarity Section -->
-    <div class="w3-padding-64 w3-white">
-        <div class="w3-row-padding">
-            <div class="w3-col l4 m6">
-                <i class="fa fa-bullhorn fa-4x"></i>
-            </div>
-            <div class="w3-col l8 m6">
-                <h1 class="w3-jumbo"><b>Decentralized</b></h1>
-                <h1 class="w3-xxxlarge w3-text-red"><b>Privacy focused</b></h1>
-                <p><span class="w3-xlarge">A revolution in live streaming on the web.</span>
-                    No account needed, full control over what you stream and whenever you want.
-                    Due to the Decentralized nature of StreamThing streaming continues when a node goes offline.
-                    Advanced configurations are possible such as dash.js player with mpd file. All in a small contained
-                    plain js library.
-                </p>
-            </div>
-        </div>
-    </div>
-
-    <!-- Features Section -->
-    <div class="w3-container w3-padding-64 w3-deep-orange w3-center">
-        <h1 class="w3-jumbo"><b>Features</b></h1>
-
-        <div class="w3-row" style="margin-top:64px">
-            <div class="w3-col s3">
-                <i class="fa fa-bolt w3-text-orange w3-jumbo"></i>
-                <p>Fast</p>
-            </div>
-            <div class="w3-col s3">
-                <i class="fa fa-heart w3-text-red w3-jumbo"></i>
-                <p>Loved</p>
-            </div>
-            <div class="w3-col s3">
-                <i class="fa fa-pied-piper-pp w3-text-yellow w3-jumbo"></i>
-                <p>Decentralized</p>
-            </div>
-            <div class="w3-col s3">
-                <i class="fa fa-diamond w3-text-white w3-jumbo"></i>
-                <p>Sharp</p>
-            </div>
-        </div>
-
-        <div class="w3-row" style="margin-top:64px">
-            <div class="w3-col s3">
-                <i class="fa fa-user w3-text-sand w3-jumbo"></i>
-                <p>Safe</p>
-            </div>
-            <div class="w3-col s3">
-                <i class="fa fa-lock w3-text-orange w3-jumbo"></i>
-                <p>Encrypted</p>
-            </div>
-            <div class="w3-col s3">
-                <i class="fa fa-wifi w3-text-grey w3-jumbo"></i>
-                <p>Connected</p>
-            </div>
-            <div class="w3-col s3">
-                <i class="fa fa-image w3-text-pink w3-jumbo"></i>
-                <p>HD</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- Pricing Section -->
-    <div class="w3-padding-64 w3-center w3-white">
-        <h1 class="w3-jumbo"><b>Pricing</b></h1>
-        <p class="w3-large">Choose a pricing plan that fits your needs.</p>
-        <div class="w3-row-padding" style="margin-top:64px">
-            <div class="w3-half w3-section">
-                <ul class="w3-ul w3-card w3-hover-shadow">
-                    <li class="w3-dark-grey w3-xlarge w3-padding-32">Basic DIY</li>
-                    <li class="w3-padding-16"><b>Initial</b> video consultancy</li>
-                    <li class="w3-padding-16"><b>all</b> Features</li>
-                    <li class="w3-padding-16"><b>No</b> Ads</li>
-                    <li class="w3-padding-16"><b>Chat</b> Support</li>
-                    <li class="w3-padding-16">
-                        <h2 class="w3-opacity">$ 25</h2>
-                    </li>
-                    <li class="w3-light-grey w3-padding-24">
-                        <button class="w3-button w3-black w3-padding-large"
-                            onclick="document.getElementById('download').style.display='block'"><i
-                                class="fa fa-envelope"></i> Contact us</button>
-                    </li>
-                </ul>
-            </div>
-            <div class="w3-half w3-section">
-                <ul class="w3-ul w3-card w3-hover-shadow">
-                    <li class="w3-red w3-xlarge w3-padding-32">Premium Service</li>
-                    <li class="w3-padding-16"><b>Custom</b> Integration</li>
-                    <li class="w3-padding-16"><b>All</b> Features</li>
-                    <li class="w3-padding-16"><b>No</b> Ads</li>
-                    <li class="w3-padding-16"><b>Endless</b> Support</li>
-                    <li class="w3-padding-16">
-                        <h2 class="w3-opacity">$ Request quote</h2>
-                    </li>
-                    <li class="w3-light-grey w3-padding-24">
-                        <button class="w3-button w3-black w3-padding-large"
-                            onclick="document.getElementById('download').style.display='block'"> <i
-                                class="fa fa-envelope"></i> Contact us</button>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <br>
-    </div>
-
-    <!-- Footer -->
-    <footer class="w3-container w3-padding-32 w3-center w3-xlarge">
-        <div class="w3-section">
-            <a href="https://github.com/meething" target="_blank">
-                <i class="fa fa-github w3-hover-opacity"></i>
-            </a>
-            
-        </div>
-        <p class="w3-medium">Powered by <a href="https://offline7.com" target="_blank"
-                class="w3-hover-text-green">Offline7</a></p>
-    </footer>
-
-    <script>
-        // Slideshow
-        var slideIndex = 1;
-        showDivs(slideIndex);
-
-        function plusDivs(n) {
-            showDivs(slideIndex += n);
-        }
-
-        function showDivs(n) {
-            var i;
-            var x = document.getElementsByClassName("mySlides");
-            if (n > x.length) { slideIndex = 1 }
-            if (n < 1) { slideIndex = x.length }
-            for (i = 0; i < x.length; i++) {
-                x[i].style.display = "none";
-            }
-            x[slideIndex - 1].style.display = "block";
-        }
-    </script>
+    <script src="js/animations.js"></script>
     <script src="js/index.js"></script>
 </body>
 

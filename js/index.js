@@ -89,14 +89,12 @@ fetch('https://gunmeetingserver.herokuapp.com/gun/stats.radata')
             video.loop = true;
             await video.play();
             gunRecorder.record();
-            document.getElementById("state").innerText = "You are streaming to p2p users and display http video";
         } else {
             // Get data from gun and pass along to viewer
             gunDB.get(STREAM_ID).on(function (data) {
                 gunViewer.onStreamerData(data);
             });
             console.log("Streaming in progress wait for stream")
-            document.getElementById("state").innerText = "You are viewing and sharing p2p video";
         }
 
     });
